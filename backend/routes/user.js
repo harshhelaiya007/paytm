@@ -22,7 +22,7 @@ const updateBody = zod.object({
 })
 
 userRouter.get('/', (req, res) => {
-  res.send('User route is working');
+  res.send('User route is working dummy route');
 });
 
 userRouter.get('/register', async (req, res) => {

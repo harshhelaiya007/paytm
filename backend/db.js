@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongodbURL = 'mongodb+srv://harshhelaiya5:Harsh%40007@cluster0.cngehgz.mongodb.net/?retryWrites=true&w=majority';
+const mongodbURL = 'mongodb+srv://harshhelaiya5:Harsh%40007@cluster0.cngehgz.mongodb.net/paytm?retryWrites=true&w=majority';
 
 // Connect to database
 mongoose.connect('mongodb+srv://harshhelaiya6:jQSK4SmkYulX6RCu@cluster0.cngehgz.mongodb.net/');

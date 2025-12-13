@@ -3,7 +3,7 @@ const JWT_SECRET = require('../config');
 const User = require('../db');
 const z = require('zod');
 const jwt = require('jsonwebtoken');
-const { authMiddleware } = require("../middleware");
+const { authMiddleware } = require('../middlewear');
 const Account = require('../db');
 
 const userRouter = express.Router();
@@ -15,10 +15,10 @@ const signupSchema = z.object({
   password: z.string().min(6),
 });
 
-const updateBody = zod.object({
-  password: zod.string().optional(),
-  firstName: zod.string().optional(),
-  lastName: zod.string().optional(),
+const updateBody = z.object({
+  password: z.string().optional(),
+  firstName: z.string().optional(),
+  lastName: z.string().optional(),
 })
 
 userRouter.get('/', (req, res) => {
@@ -53,7 +53,7 @@ userRouter.get('/register', async (req, res) => {
   res.status(201).send({ message: 'User created', data: userData, token: token });
 });
 
-userRouter.update('/update', authMiddleware, async (req, res) => {
+userRouter.put('/update', authMiddleware, async (req, res) => {
   const body = req.body;
   const { success } = updateBody.safeParse(body);
   if (!success) {

@@ -4,7 +4,7 @@ const { User } = require('../db');
 const z = require('zod');
 const jwt = require('jsonwebtoken');
 const { authMiddleware } = require('../middlewear');
-const {Account} = require('../db');
+const { Account } = require('../db');
 
 const userRouter = express.Router();
 
@@ -79,6 +79,7 @@ userRouter.get("/bulk", async (req, res) => {
       }
     }]
   })
+
 
   res.json({
     user: users.map(user => ({
